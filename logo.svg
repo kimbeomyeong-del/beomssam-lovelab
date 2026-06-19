@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 430 120" role="img" aria-label="범쌤 사랑연구소">
+  <defs>
+    <linearGradient id="heart" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#5BD0FA"/>
+      <stop offset="1" stop-color="#23A9E6"/>
+    </linearGradient>
+  </defs>
+  <!-- 하트 아이콘 (러브커넥트풍: 라인 심볼 + 워드마크) -->
+  <path d="M52 92 C24 70 13 54 13 37 C13 24 22 15 34 15 C43 15 49 21 52 28 C55 21 61 15 70 15 C82 15 91 24 91 37 C91 54 80 70 52 92 Z" fill="none" stroke="url(#heart)" stroke-width="6.5" stroke-linejoin="round" stroke-linecap="round"/>
+  <!-- 워드마크 -->
+  <text x="112" y="58" font-family="Pretendard, 'Noto Sans KR', sans-serif" font-weight="800" font-size="38">
+    <tspan fill="#0E2A4E">범쌤</tspan><tspan fill="#23A9E6"> 사랑연구소</tspan>
+  </text>
+  <text x="114" y="86" font-family="Pretendard, 'Noto Sans KR', sans-serif" font-weight="500" font-size="15" letter-spacing="0.5" fill="#5d6675">이별의 본질부터 바꾸는 재회 코칭</text>
+</svg>
