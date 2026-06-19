@@ -23,6 +23,8 @@ body {
   background: #fff;
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 h1, h2, h3, h4 { line-height: 1.32; font-weight: 800; letter-spacing: -0.02em; }
 em { font-style: normal; color: var(--blue); }
@@ -392,4 +394,18 @@ img { max-width: 100%; display: block; }
   .apply { grid-template-columns: 1fr; gap: 32px; }
   .float-cta { display: block; }
   body { padding-bottom: 70px; }
+}
+
+/* ===== 모바일 가독성 (강제 줄바꿈 해제 + 실적 정렬) ===== */
+@media (max-width: 600px) {
+  /* PC용 강제 줄바꿈은 모바일에서 숨겨 자연스럽게 흐르게 */
+  h1 br, h2 br, h3 br, h4 br, p br, .hero__title br, .hero__sub br, .lead-center br, .closing h2 br { display: none; }
+  .hero__sub { font-size: 16px; }
+  .section__lead { font-size: 15px; }
+  /* 실적 카드: 3칸 균등 한 줄 */
+  .hero__stats { display: grid; grid-template-columns: repeat(3, 1fr); width: 100%; padding: 16px 2px; }
+  .stat { padding: 8px 4px; }
+  .stat strong { font-size: 22px; }
+  .stat strong span { font-size: 13px; }
+  .stat small { font-size: 12px; }
 }
