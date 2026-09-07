@@ -198,6 +198,80 @@ p{margin:0}
   box-shadow:var(--shadow);
 }
 
+/* 실적 배지 — 히어로와 같은 고정 그라데이션(다크모드에서도 항상 안전) */
+.hstat{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  background:linear-gradient(115deg,#123B6D 0%,#3286C9 100%);
+  border-radius:var(--radius);overflow:hidden;margin-top:22px;
+}
+.hstat div{padding:20px 6px;text-align:center;}
+.hstat div + div{border-left:1px solid rgba(255,255,255,.2);}
+.hstat b{display:block;font-size:21px;font-weight:900;color:#fff;}
+.hstat span{display:block;font-size:12px;color:rgba(255,255,255,.75);margin-top:3px;}
+
+/* 모집 정보 요약 표 */
+.strip{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  overflow:hidden;margin-top:18px;
+}
+.strip div{padding:16px 8px;text-align:center;}
+.strip div + div{border-left:1px solid var(--line);}
+.strip dt{font-size:11.5px;color:var(--muted);font-weight:500;margin:0;}
+.strip dd{margin:4px 0 0;font-size:17px;font-weight:900;color:var(--navy);}
+@media (max-width:560px){
+  .strip{grid-template-columns:repeat(2,1fr);}
+  .strip div:nth-child(3){border-left:none;}
+  .strip div:nth-child(n+3){border-top:1px solid var(--line);}
+}
+
+/* 마감 임박 안내 배지 */
+.seats{
+  display:flex;align-items:center;justify-content:center;gap:9px;
+  background:var(--yellow);color:#1A1400;margin-top:18px;
+  border-radius:100px;padding:11px 20px;font-size:15px;font-weight:900;
+  letter-spacing:-.01em;
+}
+.seats .dot{
+  width:8px;height:8px;border-radius:50%;background:#E5484D;flex:none;
+  animation:blip 1.6s ease-in-out infinite;
+}
+@keyframes blip{0%,100%{opacity:1}50%{opacity:.35}}
+@media (prefers-reduced-motion:reduce){ .seats .dot{animation:none;} }
+
+/* Q&A 박스 */
+.worry{display:flex;flex-direction:column;gap:12px;margin-top:18px;}
+.worry-i{border:1px solid var(--line);border-radius:var(--radius);padding:20px 20px;}
+.worry-i .q{font-size:15.5px;font-weight:700;color:var(--navy);margin:0;}
+.worry-i .q::before{content:"Q. ";color:var(--blue);}
+.worry-i .a{margin-top:10px;font-size:14.5px;color:var(--muted);line-height:1.85;}
+.worry-i .a::before{content:"A. ";color:var(--blue);font-weight:700;}
+
+/* 한 줄 카드형 공감 문구 */
+.qline{
+  background:var(--bg-alt);border-radius:12px;padding:15px 18px;
+  font-size:15.5px;font-weight:500;color:var(--navy);line-height:1.7;
+}
+.qline + .qline{margin-top:10px;}
+
+/* 범쌤톡에서 하는 것 — 색상 강조 (고정 라이트 팔레트, 다크모드에서도 항상 동일하게 보이도록 텍스트색 고정) */
+.prog-item{border-left:4px solid transparent;}
+.prog-item.c1{background:#EDF4FC;border-left-color:#2E7FC4;}
+.prog-item.c1 .k{color:#0F5C99;}
+.prog-item.c2{background:#EFEFFB;border-left-color:#5B6EC7;}
+.prog-item.c2 .k{color:#4453A8;}
+.prog-item.c3{background:#FDF3E7;border-left-color:#D98B2B;}
+.prog-item.c3 .k{color:#8F5709;}
+.prog-item.c1 h3,.prog-item.c2 h3,.prog-item.c3 h3{color:#16305C;}
+.prog-item.c1 p,.prog-item.c2 p,.prog-item.c3 p{color:#5B6675;}
+
+/* 단순 리스트 (오세요 / 다음에 뵐게요) */
+.plist{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:11px;}
+.plist li{display:flex;align-items:flex-start;gap:10px;font-size:15.5px;line-height:1.8;}
+.plist .bl{flex:none;width:16px;text-align:center;color:var(--blue);font-weight:700;font-size:12px;line-height:1.9;}
+.plist.no .bl{color:var(--muted);font-size:13px;}
+.plist.no li{color:var(--muted);}
+
 /* 카톡 캡처 */
 .shots{display:flex;flex-direction:column;gap:18px;margin-top:4px}
 .shot{
@@ -421,17 +495,52 @@ footer a{color:var(--blue);font-weight:700;text-decoration:none;font-family:"Got
 </div>
 
 <section>
+  <div class="wrap blk">
+    <h2 class="stitle">나쁜 연애는 '운'이 아닙니다</h2>
+    <p>또 비슷한 사람을 만나고, 또 비슷하게 끝나셨나요? 헤어지고 나면 내가 뭘 잘못했는지만 며칠씩 곱씹고, 그러다 상대 인스타를 하루에 몇 번씩 들어가고 계실지도 모르겠습니다.</p>
+    <p>보통 이럴 때 우리는 <strong>더 잘하려고</strong> 합니다. 다음엔 더 참고, 더 맞춰주고, 더 좋은 사람이 되겠다고 다짐하죠. 그런데 그 다짐이 오히려 같은 결과를 만든다는 거, 알고 계셨나요?</p>
+    <p>문제는 상대가 아니라 <strong>내가 어떤 상태에서 연애를 시작하느냐</strong>에 있습니다. 자존감이 바닥인 채로 시작한 연애는 상대가 누구든 비슷하게 흘러갑니다.</p>
+    <h3 style="margin-top:14px;font-size:18px;">이 프로젝트를 만든 이유</h3>
+    <p>상담을 하다 보면 나쁜 연애를 붙잡고 있는 분들을 자주 만납니다. 자존감을 다 버려가면서까지요. 그럴 때마다 너무 안타까웠어요.</p>
+    <p>이 프로젝트를 만든 이유는 딱 하나입니다. <strong>행복한 연애를 하셨으면 하는 바람입니다.</strong> 10월에도 그 마음으로 함께합니다.</p>
+    <div class="hstat">
+      <div><b>3.6만</b><span>인스타그램 팔로워</span></div>
+      <div><b>3,000+</b><span>누적 상담</span></div>
+      <div><b>3년차</b><span>연애·재회 상담</span></div>
+    </div>
+
+    <dl class="strip">
+      <div><dt>모집</dt><dd>20명</dd></div>
+      <div><dt>기간</dt><dd>1개월</dd></div>
+      <div><dt>참가비</dt><dd>3만원</dd></div>
+      <div><dt>마감</dt><dd>9/30</dd></div>
+    </dl>
+
+    <p class="seats"><span class="dot"></span>2기 신청 접수 중</p>
+
+    <div class="worry">
+      <div class="worry-i">
+        <p class="q">왜 스무 명만 받나요?</p>
+        <p class="a">1기 때 인스타 스토리로 사전 수요조사를 했더니 <strong>100분 이상이 하고 싶다고 신청해주셨습니다.</strong> 인원을 늘리면 한 사람 한 사람을 제대로 못 챙깁니다. 그만큼 더 애정을 갖고 함께할 분들만 받으려고 2기도 스무 명으로 유지합니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<section>
   <div class="wrap">
-    <div class="bar"><h2>요즘 이런 밤 보내고 계시죠</h2></div>
-    <ul class="probe">
-      <li>자기 전에 상대 인스타 한 번 들어가 봅니다. 오늘도요.</li>
-      <li>연락하고 싶은데 거절당할까 봐 손이 안 나갑니다.</li>
-      <li>친구한테 같은 얘기를 세 번째 하고 있습니다.</li>
-      <li>타로도 봤고 사주도 봤습니다. 그때뿐이었습니다.</li>
-      <li>아침에 눈 뜨자마자 마음이 무겁습니다.</li>
-      <li>이러다 이 사람 그냥 놓치는 건가 싶습니다.</li>
-    </ul>
-    <div class="punch">이거 혼자 버티면 한 달이 그냥 지나갑니다.<br>두 달도 똑같이 지나갑니다.</div>
+    <div class="bar"><h2>1. 혹시 내 얘기 같으신가요?</h2></div>
+    <div>
+      <p class="qline">이번엔 다를 줄 알았는데 또 똑같이 끝났어요.</p>
+      <p class="qline">아닌 사람인 걸 알면서도 못 놓겠어요.</p>
+      <p class="qline">연락이 조금만 늦어져도 하루 종일 불안해요.</p>
+      <p class="qline">내가 뭘 잘못했나만 계속 생각해요.</p>
+      <p class="qline">친구들은 다 결혼하는데 나만 제자리 같아요.</p>
+    </div>
+    <p style="margin-top:16px;font-size:.97rem;color:var(--ink)">3년간 상담하면서 실제로 들었던 말들입니다. 여기엔 공통점이 하나 있어요. 전부 <strong>상대가 기준이고 내가 뒷전일 때</strong> 나오는 말입니다.</p>
+    <p style="margin-top:8px;font-size:.97rem;color:var(--ink)">기준을 나에게 되돌려놓지 않으면, 사람만 바뀌고 결과는 똑같습니다.</p>
   </div>
 </section>
 
@@ -479,27 +588,27 @@ footer a{color:var(--blue);font-weight:700;text-decoration:none;font-family:"Got
     <p class="eyebrow">한 달 구성</p>
     <div class="bar"><h2>범쌤톡에서 하는 것</h2></div>
     <div class="prog">
-      <div class="prog-item">
+      <div class="prog-item c1">
         <p class="k">매일 아침</p>
         <h3>자존감 필사 문장</h3>
         <p>아침마다 문장 하나를 보내드립니다. 손으로 따라 쓰고 사진을 올리면 됩니다. 3분이면 끝납니다. 1기에서 제일 반응이 좋았던 게 이겁니다.</p>
       </div>
-      <div class="prog-item">
+      <div class="prog-item c2">
         <p class="k">30일 12회</p>
         <h3>운동 인증</h3>
         <p>카페에 사진만 올리면 됩니다. 헬스장 안 가셔도 됩니다. 산책 20분도 인증됩니다. 몸이 움직이면 마음도 같이 움직입니다.</p>
       </div>
-      <div class="prog-item">
+      <div class="prog-item c3">
         <p class="k">평일 저녁</p>
         <h3>연애 소통 타임</h3>
         <p>연애 얘기를 편하게 나누는 시간입니다. 저도 같이 있습니다. 궁금한 거 물어보셔도 되고, 남들 얘기만 듣고 계셔도 됩니다.</p>
       </div>
-      <div class="prog-item">
+      <div class="prog-item c1">
         <p class="k">주 1회</p>
         <h3>시크릿 칼럼</h3>
         <p>범쌤톡 멤버만 보는 글입니다. 머리로는 아는데 왜 마음이 안 따라오는지, 집착을 어떻게 멈추는지 같은 주제를 심리학 근거를 들어 씁니다.</p>
       </div>
-      <div class="prog-item">
+      <div class="prog-item c2">
         <p class="k">한 달 2회</p>
         <h3>시크릿 라이브</h3>
         <p>비공개 라이브 강의 2회. <b>10월 11일(일)·25일(일) 밤 9시</b>, 강의 40분에 Q&amp;A 40분입니다. 못 보셔도 됩니다. 다시 보실 수 있게 해드립니다.</p>
@@ -581,27 +690,24 @@ footer a{color:var(--blue);font-weight:700;text-decoration:none;font-family:"Got
 
 <section>
   <div class="wrap">
-    <div class="bar"><h2>누가 오면 좋을까요</h2></div>
-    <div class="fit">
-      <div class="fit-col yes">
-        <h3>이런 분 오세요</h3>
-        <ul>
-          <li>이별하고 혼자 버티는 중인 분</li>
-          <li>연애만 하면 자존감이 깎이는 분</li>
-          <li>나쁜 연애를 반복하고 있는 분</li>
-          <li>범쌤이랑 직접 얘기해보고 싶은 분</li>
-          <li>한 달은 제대로 해보고 싶은 분</li>
-        </ul>
-      </div>
-      <div class="fit-col no">
-        <h3>이런 분은 안 맞습니다</h3>
-        <ul>
-          <li>내 상황 분석만 받고 싶은 분</li>
-          <li>재회 성공을 보장받고 싶은 분</li>
-          <li>한 달 내내 눈팅도 안 하실 분</li>
-        </ul>
-      </div>
-    </div>
+    <div class="bar"><h2>이런 분들만 오세요</h2></div>
+    <ul class="plist">
+      <li><span class="bl">○</span><span>좋은 사람 만나서 <strong>결혼까지 가고 싶은</strong> 분</span></li>
+      <li><span class="bl">○</span><span>나쁜 연애가 반복되고 있고, 이번엔 진짜 끊고 싶은 분</span></li>
+      <li><span class="bl">○</span><span>자존감이 바닥이라 연애가 더 힘들어진 분</span></li>
+      <li><span class="bl">○</span><span>재회를 준비 중인데 기다리는 시간을 그냥 흘려보내고 싶지 않은 분</span></li>
+      <li><span class="bl">○</span><span>범쌤이랑 직접 이야기 나눠보고 싶었던 분</span></li>
+      <li><span class="bl">○</span><span>일주일에 세 번, 20분은 나를 위해 쓸 수 있는 분</span></li>
+    </ul>
+
+    <h3 style="margin-top:20px;font-size:17px;">이런 분은 다음에 뵐게요</h3>
+    <ul class="plist no">
+      <li><span class="bl">✕</span><span>내 얘기는 하기 싫은데 답만 얻고 싶은 분</span></li>
+      <li><span class="bl">✕</span><span>다른 멤버에게 홍보나 영업을 하려는 분</span></li>
+      <li><span class="bl">✕</span><span>전 애인 욕만 하다 끝내고 싶은 분</span></li>
+      <li><span class="bl">✕</span><span>운동 인증을 한 번도 할 생각이 없는 분</span></li>
+    </ul>
+    <p style="margin-top:16px;font-size:.94rem;color:var(--muted);line-height:1.8">정원은 <strong>20명</strong>이고 선착순으로 채워집니다. 신청서를 쓰신 순서대로 채워지고, 스무 명이 차면 마감돼요.</p>
   </div>
 </section>
 
