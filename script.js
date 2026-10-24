@@ -14,13 +14,13 @@ const ENTRY = {
 /* ========================================================= */
 
 /* =========================================================
-   📅 범쌤톡 2기 모집 마감일 — 2026-10-01 이후 이 블록과
+   📅 범쌤톡 3기 모집 마감일 — 2026-11-01 이후 이 블록과
    index.html의 #beomssamtalk-promo 섹션, 강의실 메뉴의
-   "범쌤톡 2기" 링크를 함께 제거할 것.
+   "범쌤톡 3기" 링크를 함께 제거할 것.
    (마감일이 지나면 아래 코드가 배너를 자동으로 숨겨줌)
    ========================================================= */
-const BEOMSSAMTALK2_DEADLINE = new Date("2026-10-01T00:00:00+09:00");
-if (new Date() >= BEOMSSAMTALK2_DEADLINE) {
+const BEOMSSAMTALK3_DEADLINE = new Date("2026-11-01T00:00:00+09:00");
+if (new Date() >= BEOMSSAMTALK3_DEADLINE) {
   const promo = document.getElementById("beomssamtalk-promo");
   if (promo) promo.remove();
 }
